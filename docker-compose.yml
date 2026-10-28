@@ -20,7 +20,7 @@ services:
 
   app:
     build: .
-    image: dauletkan-nursultan-student-api:${APP_TAG:-v1.0-37037}
+    image: dauletkan-nursultan-student-api:${APP_TAG:-v1.1-37037}
     container_name: dauletkan-nursultan-app
     environment:
       # "db" is the Compose service name, resolved by Docker DNS (not localhost)

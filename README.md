@@ -7,7 +7,7 @@ Spring Boot + PostgreSQL CRUD REST API with documentation, built for the DevOps 
 | Student | Dauletkan Nursultan |
 | Group | IT2-2313 |
 | Student ID | 37037 |
-| Image | `dauletkan-nursultan-student-api:v1.0-37037` |
+| Image | `dauletkan-nursultan-student-api:v1.1-37037` |
 | URL | http://localhost:8037 |
 
 ## Stack

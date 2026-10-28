@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'kz.iitu.dauletkan'
-version = '1.0.0'
+version = '1.1.0'
 description = 'Student CRUD API - Dauletkan Nursultan (IT2-2313, ID 37037)'
 
 java {

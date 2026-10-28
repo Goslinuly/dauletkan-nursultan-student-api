@@ -9,7 +9,7 @@ pipeline {
         STUDENT_NAME = 'Dauletkan Nursultan'
         STUDENT_ID   = '37037'
         IMAGE_NAME   = 'dauletkan-nursultan-student-api'
-        IMAGE_TAG    = 'v1.0-37037'
+        IMAGE_TAG    = 'v1.1-37037'
     }
 
     triggers {
