@@ -33,3 +33,7 @@ curl http://localhost:8037/
 ## Changes by Dauletkan Nursultan
 - **feature/dauletkan-nursultan-crud**: implemented the *Update* operation
   (`PUT /api/students/{id}`) with validation, 404 handling and two tests.
+
+## CI/CD
+Jenkins job `Dauletkan_Nursultan_Student_API` polls this repository every 2 minutes
+(`pollSCM('H/2 * * * *')`) and runs Checkout -> Build -> Test -> Docker Build -> Verify.
