@@ -1,6 +1,6 @@
 # Dauletkan Nursultan Student API (IT2-2313, ID 37037)
 
-Spring Boot + PostgreSQL CRUD service for the DevOps midterm of Dauletkan Nursultan.
+Spring Boot + PostgreSQL CRUD REST API with documentation, built for the DevOps midterm of Dauletkan Nursultan.
 
 | | |
 |---|---|
