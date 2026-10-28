@@ -1,0 +1,44 @@
+name: dauletkan-nursultan-student-api
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: dauletkan-nursultan-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-dauletkan_nursultan_db}
+      POSTGRES_USER: ${POSTGRES_USER:?set POSTGRES_USER in .env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - dauletkan-nursultan-pgdata:/var/lib/postgresql/data
+    networks:
+      - dauletkan-nursultan-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: .
+    image: dauletkan-nursultan-student-api:${APP_TAG:-v1.0-37037}
+    container_name: dauletkan-nursultan-app
+    environment:
+      # "db" is the Compose service name, resolved by Docker DNS (not localhost)
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-dauletkan_nursultan_db}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "8037:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - dauletkan-nursultan-net
+    restart: unless-stopped
+
+volumes:
+  dauletkan-nursultan-pgdata:
+
+networks:
+  dauletkan-nursultan-net:
+    driver: bridge
